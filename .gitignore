@@ -1,0 +1,29 @@
+/node_modules
+/public/hot
+/public/storage
+/storage/*.key
+/vendor
+.env
+.env.backup
+.phpunit.result.cache
+docker-compose.override.yml
+Homestead.json
+Homestead.yaml
+npm-debug.log
+yarn-error.log
+
+# extras
+package-lock.json
+yarn.lock
+composer.lock
+.php-cs-fixer.cache
+.eslintcache
+.stylelintcache
+cghooks.lock
+
+# assets
+/public/vendor
+/public/css
+/public/js
+/public/img
+/public/mix-manifest.json

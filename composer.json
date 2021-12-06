@@ -1,0 +1,118 @@
+{
+	"name": "lloyds-design/lloyds-backend-laravel",
+	"version": "1.0.0",
+	"description": "Lloyds Digital CMS Template",
+	"homepage": "https://lloyds-digital.com",
+	"authors": [
+		{
+			"name": "Lloyds Digital",
+			"email": "weare@lloyds-digital.com",
+			"homepage": "https://lloyds-digital.com"
+		}
+	],
+	"support": {
+		"email": "weare@lloyds-digital.com"
+	},
+	"type": "project",
+	"require": {
+		"php": "^8.0",
+		"doctrine/dbal": "^3.0",
+		"fruitcake/laravel-cors": "^2.0",
+		"guzzlehttp/guzzle": "^7.3",
+		"htmlmin/htmlmin": "^8.0",
+		"laravel/fortify": "^1.8",
+		"laravel/framework": "^8.70",
+		"laravel/horizon": "^5.0",
+		"laravel/socialite": "^5.0",
+		"laravel/telescope": "^4.0",
+		"laravel/tinker": "^2.0",
+		"league/flysystem-aws-s3-v3": "^1.0",
+		"league/flysystem-cached-adapter": "^1.0",
+		"norkunas/onesignal-php-api": "^2.0",
+		"nyholm/psr7": "^1.4",
+		"paragonie/paseto": "^2.1",
+		"php-ffmpeg/php-ffmpeg": "^0.18",
+		"propaganistas/laravel-phone": "^4.3",
+		"socialiteproviders/apple": "^5.0",
+		"spatie/laravel-csp": "^2.6",
+		"spatie/laravel-medialibrary": "^9.0",
+		"spatie/laravel-uptime-monitor": "^4.0",
+		"twilio/sdk": "^6.20",
+		"vonage/client": "^2.8"
+	},
+	"require-dev": {
+		"andreaselia/laravel-api-to-postman": "^1.7",
+		"barryvdh/laravel-debugbar": "^3.2",
+		"brainmaestro/composer-git-hooks": "^2.8",
+		"facade/ignition": "^2.5",
+		"fakerphp/faker": "^1.9",
+		"friendsofphp/php-cs-fixer": "^3.2",
+		"mockery/mockery": "^1.4",
+		"nunomaduro/collision": "^5.10",
+		"nunomaduro/larastan": "^1.0",
+		"phpunit/phpunit": "^9.5"
+	},
+	"autoload": {
+		"psr-4": {
+			"App\\": "app/",
+			"Database\\Factories\\": "database/factories/",
+			"Database\\Seeders\\": "database/seeders/"
+		},
+		"files": [
+			"utils/helpers.php"
+		]
+	},
+	"autoload-dev": {
+		"psr-4": {
+			"Tests\\": "tests/"
+		}
+	},
+	"extra": {
+		"laravel": {
+			"dont-discover": []
+		},
+		"hooks": {
+			"pre-commit": "./pre-commit.sh"
+		}
+	},
+	"scripts": {
+		"post-autoload-dump": [
+			"Illuminate\\Foundation\\ComposerScripts::postAutoloadDump",
+			"@php artisan package:discover --ansi"
+		],
+		"post-install-cmd": "cghooks add --ignore-lock",
+		"install-dev": [
+			"@php -r \"file_exists('.env') || copy('.env.dev', '.env');\"",
+			"@update-dev",
+			"@php artisan key:generate",
+			"@php artisan storage:link",
+			"npm install -g npm",
+			"npm install",
+			"npm cache clean -f",
+			"npm run prod",
+			"@php artisan migrate --seed"
+		],
+		"update-dev": [
+			"@composer update -v --no-cache --ignore-platform-req=ext-pcntl --ignore-platform-req=ext-posix",
+			"@composer clear-cache",
+			"cghooks update",
+			"@php artisan optimize:clear"
+		],
+		"update-prod": [
+			"@composer update -v --no-cache --no-dev",
+			"@composer clear-cache",
+			"@php artisan optimize"
+		],
+		"check-format": "php-cs-fixer fix --dry-run",
+		"format": "php-cs-fixer fix",
+		"analyse": "phpstan analyse"
+	},
+	"config": {
+		"preferred-install": "dist",
+		"sort-packages": true,
+		"optimize-autoloader": true,
+		"process-timeout": 0
+	},
+	"minimum-stability": "dev",
+	"prefer-stable": true
+}

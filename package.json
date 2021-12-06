@@ -1,0 +1,55 @@
+{
+	"name": "lloyds-backend",
+	"version": "1.0.0",
+	"description": "Lloyds Digital CMS Template",
+	"homepage": "https://lloyds-digital.com",
+	"author": {
+		"name": "Lloyds Digital",
+		"email": "weare@lloyds-digital.com",
+		"url": "https://lloyds-digital.com"
+	},
+	"repository": {
+		"type": "git",
+		"url": "https://gitlab.com/lloydsgroup/lloyds-backend-laravel.git"
+	},
+	"private": true,
+	"scripts": {
+		"development": "mix",
+		"watch": "mix watch",
+		"watch-poll": "mix watch -- --watch-options-poll=1000",
+		"hot": "mix watch --hot",
+		"production": "mix --production",
+		"dev": "npm run development",
+		"prod": "npm run production",
+		"check-js": "eslint --cache webpack.mix.js resources/assets/js/**/*.js",
+		"format-js": "eslint --fix --cache webpack.mix.js resources/assets/js/**/*.js",
+		"check-css": "stylelint --cache resources/assets/css/**/*.css",
+		"format-css": "stylelint --fix --cache resources/assets/css/**/*.css"
+	},
+	"prettier": {
+		"printWidth": 160,
+		"useTabs": true,
+		"semi": true,
+		"singleQuote": true,
+		"quoteProps": "as-needed",
+		"trailingComma": "none",
+		"bracketSpacing": true,
+		"jsxBracketSameLine": false,
+		"arrowParens": "avoid",
+		"endOfLine": "lf"
+	},
+	"devDependencies": {
+		"browser-sync": "latest",
+		"browser-sync-webpack-plugin": "latest",
+		"copy-webpack-plugin": "^5.1",
+		"del": "latest",
+		"eslint": "latest",
+		"imagemin-webpack-plugin": "latest",
+		"laravel-mix": "latest",
+		"laravel-mix-imagemin": "latest",
+		"postcss": "latest",
+		"resolve-url-loader": "latest",
+		"stylelint": "latest",
+		"stylelint-config-standard-scss": "latest"
+	}
+}
