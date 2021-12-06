@@ -12,7 +12,7 @@ class SpotifyHandler extends BaseApiHandler
 
 	private string $appId;
 	private string $clientSecret;
-	private string $token;
+	private ?string $token;
 
 	public function __construct(?string $token = null)
 	{
