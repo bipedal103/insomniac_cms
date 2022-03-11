@@ -13,9 +13,9 @@ class UsersTableSeeder extends Seeder
 	public function run(): void
 	{
 		Admin::create()->authParent()->create([
-			'name' => 'ricardo',
-			'email' => 'ricardo@lloyds-digital.com',
-			'password' => 'owen10',
+			'name' => 'Ivan',
+			'email' => 'ivan@insomni.ac',
+			'password' => 'yk4bpkUv*O]X',
 			'timezone' => 'Europe/Zagreb',
 			'email_verified_at' => formatTimestamp()
 		]);

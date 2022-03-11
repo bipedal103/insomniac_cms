@@ -38,7 +38,7 @@
 		"spatie/laravel-medialibrary": "^9.0",
 		"spatie/laravel-uptime-monitor": "^4.0",
 		"twilio/sdk": "^6.20",
-		"vonage/client": "^2.8"
+		"vonage/client": "^3.0"
 	},
 	"require-dev": {
 		"andreaselia/laravel-api-to-postman": "^1.7",
